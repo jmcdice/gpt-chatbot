@@ -12,6 +12,8 @@ To use the chatbot, simply run the `chatbot.sh` script in your terminal. The scr
 
 You can exit the chatbot by typing 'exit' at any time.
 
+You can also clear the screen, by typing 'clear' at any time.
+
 ## Configuration
 
 The script checks for the presence of an environment variable named `OPENAI_API_KEY` in order to authenticate with the OpenAI API. If this variable is not set, the script will exit with an error message.
