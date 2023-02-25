@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+# Check that the API key was provided
+if [ -z "$OPENAI_API_KEY" ]; then
+    echo "Error: Please export \$OPENAI_API_KEY."
+    exit 1
+fi
+
+function send_query() {
+
+  local INPUT=$1
+  local CONTEXT=$2
+
+  response=$(curl -s https://api.openai.com/v1/completions \
+     -H 'Content-Type: application/json' \
+     -H "Authorization: Bearer $OPENAI_API_KEY" \
+     -d "{
+     \"model\": \"text-davinci-003\",
+     \"prompt\": \"$CONTEXT $INPUT\",
+     \"max_tokens\": 2048,
+     \"temperature\": 0
+  }")
+
+  if [ $? -ne 0 ]; then
+    echo "Error: Request failed"
+    exit 1
+  fi
+
+  echo $response > response.json
+  response_text=$(echo $response | jq -r ".choices[0].text" )
+
+  if [ -z "$response_text" ]; then
+    echo "Error: Empty response"
+    exit 1
+  fi
+
+  echo "$response_text"
+}
+
+CONTEXT="Please make your responses very conversational and polite"
+while true; do
+  echo -e "\nWhat's on your mind? (Type 'exit' to quit)"
+  read -p ">>> " input
+
+  if [ "$input" == "exit" ]; then
+    echo "Goodbye!"
+    exit 0
+  elif [ "$input" == "clear" ]; then
+    clear
+    continue
+  fi
+
+  response=$(send_query "$input" "$CONTEXT")
+
+  echo "$response"
+  
+  CONTEXT="$CONTEXT $input $response"
+  CONTEXT=$(echo $CONTEXT | tr -d '\n')
+done
