@@ -10,15 +10,21 @@ You need [jq](https://stedolan.github.io/jq/) installed on the system. The insta
 
 For example, if you are using Ubuntu or Debian, you can install jq by running the following command:
 
-```sudo apt-get install jq```
+```console
+sudo apt-get install jq
+```
 
 If you are using CentOS or Fedora, you can install jq by running the following command:
 
-```sudo yum install jq```
+```console
+sudo yum install jq
+```
 
 If you are using macOS, you can install jq using Homebrew by running the following command:
 
-```brew install jq```
+```console
+brew install jq
+```
 
 ## Usage
 
