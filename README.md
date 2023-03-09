@@ -6,6 +6,20 @@ This is a Bash script that uses OpenAI's GPT-3 language model to create a conver
 
 Before you can use this script, you need to have an OpenAI API key. If you don't already have one, you can sign up for a free account at the [OpenAI website](https://beta.openai.com/signup/).
 
+You need [jq](https://stedolan.github.io/jq/) installed on the system. The installation process depends on the operating system you are using.
+
+For example, if you are using Ubuntu or Debian, you can install jq by running the following command:
+
+```sudo apt-get install jq```
+
+If you are using CentOS or Fedora, you can install jq by running the following command:
+
+```sudo yum install jq```
+
+If you are using macOS, you can install jq using Homebrew by running the following command:
+
+```brew install jq```
+
 ## Usage
 
 To use the chatbot, simply run the `chatbot.sh` script in your terminal. The script will prompt you for input, and you can type in anything you like. The AI will respond with a generated text that continues the conversation.
@@ -27,7 +41,3 @@ export OPENAI_API_KEY=your_api_key_here
 ## Disclaimer
 
 Please note that this script is provided for educational purposes only. Use of the OpenAI API is subject to their terms of service, and you should review those terms before using this script.
-
-
-
-
