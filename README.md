@@ -1,5 +1,10 @@
-# gpt-chatbot: A Conversational AI Chatbot
+# OpenAI Endpoint Learnings
 
+gpt-chatbot: A conversational AI chatbot
+transcribe-yt-audio.py: Transcribe audio from YouTube videos
+
+
+## gpt-chatbot
 This is a Bash script that uses OpenAI's GPT-3 language model to create a conversational AI chatbot. The script prompts the user for input, sends it to the GPT-3 API for processing, and displays the AI's response.
 
 ## Prerequisites
@@ -44,6 +49,29 @@ To set the `OPENAI_API_KEY` variable, export it in your terminal before running 
 export OPENAI_API_KEY=your_api_key_here
 ```
 
-## Disclaimer
+## transcribe-yt-audio.py
 
-Please note that this script is provided for educational purposes only. Use of the OpenAI API is subject to their terms of service, and you should review those terms before using this script.
+### Introduction
+yt-audio-transcriber-chatbot is a Python-based project that enables you to download and transcribe audio from YouTube videos. In addition, it includes a conversational chatbot that uses the OpenAI API to generate human-like responses to user input.
+
+Installation
+To use yt-audio-transcriber-chatbot, you'll need to have Python 3.x installed on your machine. Additionally, you'll need to install the yt-dlp and openai Python modules. You can install these modules using the following commands:
+
+```console
+  pip install yt-dlp
+  pip install openai
+```
+
+## Usage
+### Downloading and Transcribing Audio from YouTube Videos
+
+To download and transcribe audio from a YouTube video, you can run the transcribe-ytaudio.py script from the command line:
+
+```console
+  ./transcribe-yt-audio.py <video_url>
+```
+
+This will download the audio from the YouTube video and save it as an mp3 file in a directory with a name generated from the video's title. The script will also transcribe the audio using the OpenAI API and save the transcript as a text file in the same directory.
+
+
+
